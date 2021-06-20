@@ -1,23 +1,21 @@
+// Problem 1335A
+// https://codeforces.com/problemset/problem/1335/A
 #include <stdio.h>
 
 int main(){
 	int t;
-	long long n;
-	int i; // for loop iterator
-	int x = 0;
-	int coeff = 1;
-	int prevCoeff = coeff;
-	
-	scanf("%d\n", &t);
+	long long int n;
+	scanf("%d", &t);
 
-	for (i = 0; i < t; i++){
-		scanf("%lld\n", &n);
-		while (n % coeff == 0){
-			prevCoeff = coeff;
-			coeff *= 2 + prevCoeff;
-			x = n / coeff;
+	for (int k = 0; k < t; k++){
+		scanf("%lld", &n);
+		if (n < 3){
+			printf("%d\n", 0);
+		} else if (n % 2 == 0){
+			printf("%lld\n", n / 2 - 1);
+		} else{
+			printf("%lld\n", n / 2);
 		}
-		printf("%d\n", x);
 	}
 
 	return 0;

@@ -1,3 +1,6 @@
+// Problem 34B
+// https://codeforces.com/problemset/problem/34/B
+
 #include <stdio.h>
 
 int main(){
@@ -6,11 +9,14 @@ int main(){
     scanf("%d%d", &n, &m);
     int values[n];
 
+    // input values and add to array
     for (int k = 0; k < n; k++){
         scanf("%d", &price);
         price *= -1;
         values[k] = price;
     }
+
+    // sort array
     for (int z = 1; z < n; z++){
             for (int j = 0; j < z; j++){
                 if (values[j]> values[z]){
@@ -21,6 +27,7 @@ int main(){
             }
             
     }
+    // check if larger price can be achieved with less tvs
     if (values[n - m] < 0){
         for (int a = n - m + 1; a < n; a++){
             if (values[a] >= 0){
